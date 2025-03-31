@@ -4,24 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eshan Kavishka Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-color: #ffffff;
-            --container-bg: rgba(255, 255, 255, 0.9);
-            --text-color: #000000;
+            --bg-color: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            --container-bg: rgba(255, 255, 255, 0.15);
+            --text-color: #ffffff;
             --link-bg: #007bff;
             --link-hover: #0056b3;
             --button-bg: #28a745;
             --button-hover: #218838;
         }
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --container-bg: rgba(30, 30, 30, 0.9);
-            --text-color: #ffffff;
-            --link-bg: #4CAF50;
-            --link-hover: #45a049;
-            --button-bg: #007bff;
-            --button-hover: #0056b3;
+        [data-theme="light"] {
+            --bg-color: linear-gradient(135deg, #ffffff, #f0f0f0);
+            --container-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #000000;
         }body {
         font-family: 'Poppins', sans-serif;
         text-align: center;
@@ -29,140 +26,88 @@
         padding: 0;
         background: var(--bg-color);
         color: var(--text-color);
-        transition: background 0.3s, color 0.3s;
-        overflow-x: hidden;
+        transition: all 0.3s;
     }
-
     .container {
         max-width: 900px;
         margin: 20px auto;
         padding: 20px;
         background: var(--container-bg);
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: background 0.3s;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
     }
-
-    h1, h3, p {
-        font-weight: bold;
-        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffc3, #008cff, #ae00ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: rgb-light 3s infinite;
+    h1 {
+        font-size: 28px;
+        font-weight: 600;
+        animation: colorChange 3s infinite;
     }
-
-    @keyframes rgb-light {
-        0% { opacity: 1; }
-        50% { opacity: 0.6; }
-        100% { opacity: 1; }
+    @keyframes colorChange {
+        0% { color: red; }
+        50% { color: cyan; }
+        100% { color: yellow; }
     }
-
     .social-links {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 15px;
         margin-top: 15px;
     }
-
     .social-links a {
-        font-size: 16px;
+        font-size: 18px;
         color: white;
         background: var(--link-bg);
-        padding: 12px 18px;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background 0.3s, transform 0.2s;
+        padding: 12px;
+        border-radius: 50px;
+        transition: transform 0.3s ease-in-out;
     }
-
     .social-links a:hover {
-        background: var(--link-hover);
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
-
     .theme-toggle {
-        margin-top: 10px;
-        cursor: pointer;
-        padding: 10px;
+        margin-top: 15px;
+        padding: 10px 15px;
+        border-radius: 8px;
         border: none;
         background: var(--button-bg);
         color: white;
         font-size: 16px;
-        border-radius: 8px;
+        cursor: pointer;
         transition: background 0.3s, transform 0.2s;
     }
-
     .theme-toggle:hover {
         background: var(--button-hover);
         transform: scale(1.1);
     }
-
-    .upload-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    .upload-container input,
-    .upload-container button {
-        margin: 10px 0;
-        padding: 12px;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-
-    .upload-container img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: none;
-    }
 </style>
 
 </head>
-<body><div class="container">
-    <h1>Eshan Kavishka Profile Full Picture</h1>
-    <p>🚀 Automate your WhatsApp profile updates with our bot!</p>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button><h3>Contact & Social Media</h3>
-<div class="social-links">
-    <a href="mailto:Fire2killsl@gmail.com">📧 Email</a>
-    <a href="https://wa.me/94758178340">📱 WhatsApp 1</a>
-    <a href="https://wa.me/94789119916">📱 WhatsApp 2</a>
-    <a href="https://youtube.com/@eshantechnic1">🎥 YouTube</a>
-    <a href="https://www.tiktok.com/@eshu_nvrdie_official">🎵 TikTok</a>
-</div>
+<body>
+<div class="container">
+    <h1>Eshan Kavishka Profile</h1>
+    <p>🚀 Automate your WhatsApp profile updates with our bot!</p><button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
 
-<h3>Upload Your Profile Picture</h3>
-<div class="upload-container">
-    <input type="file" id="image-upload" accept="image/*" onchange="previewImage(event)" />
-    <button onclick="submitData()">Upload</button>
-    <img id="image-preview" src="" alt="Image Preview" />
+<h3>Contact & Social Media</h3>
+<div class="social-links">
+    <a href="mailto:Fire2killsl@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/94758178340"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/94789119916"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://youtube.com/@eshantechnic1"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@eshu_nvrdie_official"><i class="fab fa-tiktok"></i></a>
 </div>
 
 </div><script>
+    function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
+        setTheme(currentTheme === "light" ? "dark" : "light");
     }
-
     (function () {
-        const savedTheme = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-theme", savedTheme);
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        setTheme(savedTheme);
     })();
-
-    function previewImage(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById("image-preview").src = e.target.result;
-            document.getElementById("image-preview").style.display = "block";
-        };
-        reader.readAsDataURL(file);
-    }
 </script></body>
 </html>
