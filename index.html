@@ -1,14 +1,61 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+<head>
     <meta charset="UTF-8">
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eshan kavishka whatsapp profile picture </title>
-    <script async="" src="js/adsbygoogle.js" crossorigin="anonymous"></script>
-    <script type="module" crossorigin="" src="js/index-BYOM0YEj.js"></script>
-    <link rel="stylesheet" crossorigin="" href="css/index-DfzPgsbm.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  
+    <title>Levanter Profile Picture</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }.container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-</body></html>
+    h1 {
+        color: #fff;
+    }
+
+    input, button {
+        margin: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: #ff6600;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff4500;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Set Your WhatsApp Profile Picture</h1>
+        <input type="file" id="imageUpload" accept="image/*">
+        <button onclick="removeBackground()">Remove Background</button>
+        <img id="preview" src="" alt="Preview" style="display:none;">
+        <input type="text" id="whatsappNumber" placeholder="Enter WhatsApp Number">
+        <button onclick="setProfilePicture()">Set Profile Picture</button>
+    </div><script src="script.js"></script>
+
+</body>
+</html>
