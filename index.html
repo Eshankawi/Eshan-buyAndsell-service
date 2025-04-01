@@ -2,78 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eshan Kavishka Profile</title>
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --container-bg: rgba(255, 255, 255, 0.9);
-            --text-color: #000000;
-            --link-bg: #007bff;
-            --link-hover: #0056b3;
-            --button-bg: #28a745;
-            --button-hover: #218838;
-        }
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --container-bg: rgba(30, 30, 30, 0.9);
-            --text-color: #ffffff;
-            --link-bg: #4CAF50;
-            --link-hover: #45a049;
-            --button-bg: #007bff;
-            --button-hover: #0056b3;
-        }body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        transition: background 0.3s, color 0.3s;
-        overflow-x: hidden;
-        position: relative;
-    }
-
-    /* RGB Background Animation */
-    @keyframes rgb-background {
-        0% { background: red; }
-        14% { background: yellow; }
-        28% { background: green; }
-        42% { background: cyan; }
-        57% { background: blue; }
-        71% { background: magenta; }
-        85% { background: orange; }
-        100% { background: red; }
-    }
-
-    .animated-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        animation: rgb-background 10s infinite alternate;
-    }
-
-    .container {
-        position: relative;
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 20px;
-        background: var(--container-bg);
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: background 0.3s;
-    }
-</style>
-
+    <title>Levanter Profile Picture</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="animated-bg"></div>
     <div class="container">
-        <h1>Eshan Kavishka Profile Full Picture</h1>
-        <p>🚀 Automate your WhatsApp profile updates with our bot!</p>
-    </div>
+        <h1>Set Your WhatsApp Profile Picture</h1>
+        <input type="file" id="imageUpload" accept="image/*">
+        <button onclick="removeBackground()">Remove Background</button>
+        <img id="preview" src="" alt="Preview" style="display:none;">
+        <input type="text" id="whatsappNumber" placeholder="Enter WhatsApp Number">
+        <button onclick="setProfilePicture()">Set Profile Picture</button>
+    </div><script src="script.js"></script>
+
 </body>
 </html>
