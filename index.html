@@ -6,10 +6,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             text-align: center;
             margin: 0;
             padding: 20px;
+            transition: background 0.5s, color 0.5s;
         }
         .container {
             background: white;
@@ -25,7 +25,6 @@
             to { opacity: 1; }
         }
         h1 {
-            color: #007bff;
             font-size: 2em;
             animation: slideDown 1s ease-in-out;
         }
@@ -38,7 +37,6 @@
             margin: 10px 0;
             text-decoration: none;
             font-weight: bold;
-            color: #007bff;
         }
         .services-list {
             text-align: left;
@@ -51,63 +49,88 @@
             list-style: none;
             font-size: 1.1em;
             font-weight: bold;
-            background: #007bff;
-            color: white;
             padding: 8px;
             border-radius: 5px;
             transition: transform 0.3s, background 0.3s;
         }
         .services-list li:hover {
             transform: scale(1.05);
-            background: #0056b3;
+        }
+        .dark-mode {
+            background: black;
+            color: white;
+        }
+        .rgb-text {
+            animation: rgbCycle 3s infinite;
+        }
+        @keyframes rgbCycle {
+            0% { color: red; }
+            33% { color: green; }
+            66% { color: blue; }
+            100% { color: red; }
+        }
+        .toggle-btn {
+            margin: 20px;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="container">
-        <h1>🚀 Welcome to Eshan Kavishka Services 🚀</h1>
-        <p>Your one-stop solution for digital services!</p><h2>📞 Contact Me:</h2>
-    <div class="contact-links">
-        <a href="mailto:Fire2killsl@gmail.com">📧 Email: Fire2killsl@gmail.com</a>
-        <a href="https://wa.me/94758178340">📱 WhatsApp 1</a>
-        <a href="https://wa.me/94789119916">📱 WhatsApp 2</a>
-        <a href="https://youtube.com/@eshantechnic1?si=OVtYiJoHAYFlNve2">🎥 YouTube Channel</a>
-        <a href="https://www.tiktok.com/@eshu_nvrdie_official">🎵 TikTok</a>
-        <a href="https://eshan-kavishka-pp-vercal-app.vercel.app/">🌐 Eshan PP Web</a>
+        <h1 class="rgb-text">🚀 Welcome to Eshan Kavishka Services 🚀</h1>
+        <p>Your one-stop solution for digital services!</p>
+        <h2>📞 Contact Me:</h2>
+        <div class="contact-links">
+            <a href="mailto:Fire2killsl@gmail.com">📧 Email: Fire2killsl@gmail.com</a>
+            <a href="https://wa.me/94758178340">📱 WhatsApp 1</a>
+            <a href="https://wa.me/94789119916">📱 WhatsApp 2</a>
+            <a href="https://youtube.com/@eshantechnic1?si=OVtYiJoHAYFlNve2">🎥 YouTube Channel</a>
+            <a href="https://www.tiktok.com/@eshu_nvrdie_official">🎵 TikTok</a>
+            <a href="https://eshan-kavishka-pp-vercal-app.vercel.app/">🌐 Eshan PP Web</a>
+        </div>
+        <h2>💼 Our Services 💼</h2>
+        <ul class="services-list">
+            <li>🌍 Custom Website Development</li>
+            <li>🛒 E-commerce Website Development</li>
+            <li>🤖 AI Chatbot Development</li>
+            <li>📲 WhatsApp Business Automation</li>
+            <li>📢 Social Media Marketing</li>
+            <li>🎯 Facebook & Instagram Ads</li>
+            <li>📈 YouTube Channel Growth & SEO</li>
+            <li>🎨 Graphic & Video Editing</li>
+            <li>🔒 Cybersecurity & Ethical Hacking</li>
+            <li>📝 Resume & CV Writing Services</li>
+            <li>🛍️ Print-on-Demand Store Creation</li>
+            <li>🎓 Online Course Creation & Selling</li>
+            <li>🏢 Business Logo & Branding</li>
+            <li>💰 Cryptocurrency Trading & Investing</li>
+            <li>📊 Stock Market Analysis & Signals</li>
+            <li>🛠️ UI/UX Design for Apps & Websites</li>
+            <li>🎬 Video Editing & Motion Graphics</li>
+            <li>🎼 Music Composition & Production</li>
+            <li>📚 E-book & Magazine Cover Design</li>
+            <li>🎭 Voice-Over & Dubbing Services</li>
+            <li>🎤 Podcast Hosting & Editing</li>
+            <li>💼 Online Business Consulting</li>
+            <li>📜 Legal Document Drafting</li>
+            <li>💳 Amazon FBA Business Setup</li>
+            <li>🏡 Real Estate Digital Marketing</li>
+            <li>📌 Print-on-Demand Store Setup</li>
+            <li>📖 SEO-Friendly Blog Writing</li>
+            <li>📈 Digital Business Growth Strategies</li>
+        </ul>
     </div>
-    
-    <h2>💼 Our Services 💼</h2>
-    <ul class="services-list">
-        <li>🌍 Custom Website Development</li>
-        <li>🛒 E-commerce Website Development</li>
-        <li>🤖 AI Chatbot Development</li>
-        <li>📲 WhatsApp Business Automation</li>
-        <li>📢 Social Media Marketing</li>
-        <li>🎯 Facebook & Instagram Ads</li>
-        <li>📈 YouTube Channel Growth & SEO</li>
-        <li>🎨 Graphic & Video Editing</li>
-        <li>🔒 Cybersecurity & Ethical Hacking</li>
-        <li>📝 Resume & CV Writing Services</li>
-        <li>🛍️ Print-on-Demand Store Creation</li>
-        <li>🎓 Online Course Creation & Selling</li>
-        <li>🏢 Business Logo & Branding</li>
-        <li>💰 Cryptocurrency Trading & Investing</li>
-        <li>📊 Stock Market Analysis & Signals</li>
-        <li>🛠️ UI/UX Design for Apps & Websites</li>
-        <li>🎬 Video Editing & Motion Graphics</li>
-        <li>🎼 Music Composition & Production</li>
-        <li>📚 E-book & Magazine Cover Design</li>
-        <li>🎭 Voice-Over & Dubbing Services</li>
-        <li>🎤 Podcast Hosting & Editing</li>
-        <li>💼 Online Business Consulting</li>
-        <li>📜 Legal Document Drafting</li>
-        <li>💳 Amazon FBA Business Setup</li>
-        <li>🏡 Real Estate Digital Marketing</li>
-        <li>📌 Print-on-Demand Store Setup</li>
-        <li>📖 SEO-Friendly Blog Writing</li>
-        <li>📈 Digital Business Growth Strategies</li>
-    </ul>
-</div>
-
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
