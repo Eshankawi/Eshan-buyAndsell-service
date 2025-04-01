@@ -2,112 +2,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eshan Kavishka Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Eshan Kavishka Official</title>
     <style>
-        :root {
-            --bg-color: linear-gradient(135deg, #1e1e1e, #3a3a3a);
-            --container-bg: rgba(255, 255, 255, 0.15);
-            --text-color: #ffffff;
-            --link-bg: #007bff;
-            --link-hover: #0056b3;
-            --button-bg: #28a745;
-            --button-hover: #218838;
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
         }
-        [data-theme="light"] {
-            --bg-color: linear-gradient(135deg, #ffffff, #f0f0f0);
-            --container-bg: rgba(255, 255, 255, 0.9);
-            --text-color: #000000;
-        }body {
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        transition: all 0.3s;
-    }
-    .container {
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 20px;
-        background: var(--container-bg);
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(10px);
-    }
-    h1 {
-        font-size: 28px;
-        font-weight: 600;
-        animation: colorChange 3s infinite;
-    }
-    @keyframes colorChange {
-        0% { color: red; }
-        50% { color: cyan; }
-        100% { color: yellow; }
-    }
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    .social-links a {
-        font-size: 18px;
-        color: white;
-        background: var(--link-bg);
-        padding: 12px;
-        border-radius: 50px;
-        transition: transform 0.3s ease-in-out;
-    }
-    .social-links a:hover {
-        transform: scale(1.2);
-    }
-    .theme-toggle {
-        margin-top: 15px;
-        padding: 10px 15px;
-        border-radius: 8px;
-        border: none;
-        background: var(--button-bg);
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-    }
-    .theme-toggle:hover {
-        background: var(--button-hover);
-        transform: scale(1.1);
-    }
-</style>
-
+        .container {
+            position: relative;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+        }
+        .container span {
+            position: relative;
+            display: inline-block;
+            animation: animate 2s infinite alternate;
+        }
+        @keyframes animate {
+            0% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20px);
+                opacity: 0.5;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Eshan Kavishka Profile</h1>
-    <p>🚀 Automate your WhatsApp profile updates with our bot!</p><button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-
-<h3>Contact & Social Media</h3>
-<div class="social-links">
-    <a href="mailto:Fire2killsl@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/94758178340"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://wa.me/94789119916"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://youtube.com/@eshantechnic1"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@eshu_nvrdie_official"><i class="fab fa-tiktok"></i></a>
-</div>
-
-</div><script>
-    function setTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-    }
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute("data-theme");
-        setTheme(currentTheme === "light" ? "dark" : "light");
-    }
-    (function () {
-        const savedTheme = localStorage.getItem("theme") || "dark";
-        setTheme(savedTheme);
-    })();
-</script></body>
+    <div class="container">
+        <span>E</span>
+        <span>S</span>
+        <span>H</span>
+        <span>A</span>
+        <span>N</span>
+    </div>
+</body>
 </html>
