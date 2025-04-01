@@ -1,288 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XＥꜱʜᴜ-BOT</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
-            margin: auto;
-            width: 85%;
-            padding: 40px;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 2s ease;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            color: #fff;
-        }
-
-        .highlight {
-            color: #ffcc00;
-            text-decoration: underline;
-        }
-
-        .subtitle {
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .service-item {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .service-btn {
-            background: #ffcc00;
-            border: none;
-            color: #111;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
-
-        .service-btn:hover {
-            background: #ff9900;
-            transform: scale(1.1);
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            background: #333;
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 1.5em;
-            color: #fff;
-        }
-
-        .see-more-btn {
-            background: transparent;
-            border: 2px solid #ffcc00;
-            color: #ffcc00;
-            padding: 10px 30px;
-            margin-top: 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .see-more-btn:hover {
-            background: #ffcc00;
-            color: #111;
-        }
-
-        .social-links {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .social-links h3 {
-            font-size: 2em;
-            color: white;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.3em;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #ffcc00;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .social-links img {
-            width: 30px;
-            height: 30px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="header">
-            <h1>Welcome To <span class="highlight">XＥꜱʜᴜ-BOT</span></h1>
-            <p class="subtitle">24×7 Hours Work : ☟︎︎︎</p>
-        </div>
-
-        <div class="services">
-            <div class="service-item">
-                <button class="service-btn">Whatsapp Band/Unband Method 🎭☯︎︎</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Top up Service (Games) 🎮☠︎︎</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Location Hacking 🚩</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Hacking Apps, Tools, and Software 🪀👨🏿‍💻</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">All Device Virus 📲☠︎︎</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Premium Apps & Games ☑️</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Website Development 🌐☕︎</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Editing 📸</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Wp bots Deployment 🤖👨🏿‍🔧</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Cc Adding 💳💸</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Fast Internet 📶☠︎︎</button>
-            </div>
-            <div class="service-item">
-                <button class="service-btn">Movies & Films 📽️🎬</button>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Chat Me And Ask For What You Want 📜✏️</p>
-            <button class="see-more-btn" onclick="alert('More details coming soon!')">See More</button>
-        </div>
-
-        <div class="social-links">
-            <h3>Contact & Social Media</h3>
-            <a href="mailto:Fire2killsl@gmail.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Google_Gmail_logo_2020.svg" alt="Email" />
-                📧 Email
-            </a>
-            <a href="https://wa.me/94758178340">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp 1" />
-                📱 WhatsApp 1
-            </a>
-            <a href="https://wa.me/94789119916">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp 2" />
-                📱 WhatsApp 2
-            </a>
-            <a href="https://youtube.com/@eshantechnic1">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" />
-                🎥 YouTube
-            </a>
-            <a href="https://www.tiktok.com/@eshu_nvrdie_official">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo_2021.svg" alt="TikTok" />
-                🎵 TikTok
-            </a>
-            <a href="https://eshan-kavishka-pp-vercal-app.vercel.app/">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Logo_of_Vercel.svg" alt="Vercel" />
-                🌍 Website
-            </a>
-        </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.service-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                alert('You clicked a service button!');
-            });
-        });
-    </script>
-
-</body>
-                    </html>
 <!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui.min.css">
+    <title>Eshan Kavishka Services</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
         }
         .container {
-            width: 80%;
-            margin: auto;
             background: white;
             padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .contact-links a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .services-list {
+            text-align: left;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .services-list li {
+            margin: 10px 0;
+            list-style: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>API Documentation</h1>
-        <div id="swagger-ui"></div>
-    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui-bundle.min.js"></script>
-<script>
-    window.onload = function() {
-        const ui = SwaggerUIBundle({
-            url: "https://api.davidcyriltech.my.id/openapi.json",
-            dom_id: "#swagger-ui",
-        });
-    }
-</script>
+        <h1>Welcome to Eshan Kavishka Services</h1>
+        <p>Your one-stop solution for digital services!</p><h2>Contact Me:</h2>
+    <div class="contact-links">
+        <a href="mailto:Fire2killsl@gmail.com">Email: Fire2killsl@gmail.com</a>
+        <a href="https://wa.me/94758178340">WhatsApp 1</a>
+        <a href="https://wa.me/94789119916">WhatsApp 2</a>
+        <a href="https://youtube.com/@eshantechnic1?si=OVtYiJoHAYFlNve2">YouTube Channel</a>
+        <a href="https://www.tiktok.com/@eshu_nvrdie_official">TikTok</a>
+        <a href="https://eshan-kavishka-pp-vercal-app.vercel.app/">Eshan PP Web</a>
+    </div>
+    
+    <h2>Our Services</h2>
+    <ul class="services-list">
+        <li>Custom Website Development</li>
+        <li>E-commerce Website Development</li>
+        <li>AI Chatbot Development</li>
+        <li>WhatsApp Business Automation</li>
+        <li>Social Media Marketing</li>
+        <li>Facebook & Instagram Ads</li>
+        <li>YouTube Channel Growth & SEO</li>
+        <li>Graphic & Video Editing</li>
+        <li>Cybersecurity & Ethical Hacking</li>
+        <li>Resume & CV Writing Services</li>
+        <li>Print-on-Demand Store Creation</li>
+        <li>Online Course Creation & Selling</li>
+        <li>Business Logo & Branding</li>
+        <li>Digital Product Creation & Selling</li>
+        <li>Freelancing Training & Coaching</li>
+        <li>Virtual Assistant Services</li>
+        <li>Online Business Consulting</li>
+        <li>Business Plan Writing & Strategy</li>
+        <li>Legal Document Drafting</li>
+        <li>Professional Logo Design</li>
+        <li>YouTube Thumbnail Design</li>
+        <li>Social Media Post Designing</li>
+        <li>Video Editing & Motion Graphics</li>
+        <li>Podcast Editing & Mixing</li>
+        <li>3D Animation & Modeling</li>
+        <li>UI/UX Design for Apps & Websites</li>
+        <li>Business Presentation Design</li>
+        <li>E-book & Magazine Cover Design</li>
+        <li>Infographic & Poster Designing</li>
+        <li>Data Analysis & Visualization</li>
+        <li>Market Research & Survey Analysis</li>
+        <li>Business Intelligence Solutions</li>
+        <li>Bug Bounty & Security Audits</li>
+        <li>Website Security Testing</li>
+        <li>Cloud Security & Backup Solutions</li>
+        <li>GDPR & Privacy Policy Compliance</li>
+        <li>Penetration Testing for Businesses</li>
+        <li>Music Composition & Production</li>
+        <li>Podcast Hosting & Editing</li>
+        <li>Custom Sound Effects & Jingles</li>
+        <li>Background Music for Videos</li>
+        <li>Lyric Writing & Song Production</li>
+        <li>Voice-Over & Dubbing Services</li>
+        <li>Audiobook Narration & Production</li>
+        <li>ASMR Content Creation</li>
+        <li>Video Script Writing</li>
+        <li>TikTok & Reels Sound Production</li>
+        <li>Cryptocurrency Trading & Investing</li>
+        <li>Stock Market Analysis & Signals</li>
+        <li>Online Investing Strategies</li>
+        <li>Passive Income Blogging</li>
+        <li>Affiliate Marketing Coaching</li>
+        <li>Selling Digital Courses & E-books</li>
+        <li>Amazon FBA Business Setup</li>
+        <li>Real Estate Digital Marketing</li>
+        <li>Print-on-Demand Store Setup</li>
+        <li>Personal Development Coaching</li>
+        <li>Productivity & Time Management Training</li>
+        <li>Coding & Programming Lessons</li>
+        <li>AI & Machine Learning Coaching</li>
+        <li>Digital Marketing Training</li>
+        <li>Content Writing & Copywriting Courses</li>
+        <li>Video Editing Masterclass</li>
+        <li>Social Media Marketing Course</li>
+        <li>Resume & CV Writing Services</li>
+        <li>Professional Cover Letter Writing</li>
+        <li>LinkedIn Profile Optimization</li>
+        <li>Virtual Event Planning & Management</li>
+        <li>Online Personal Finance Coaching</li>
+        <li>Mobile App Testing & Review</li>
+        <li>SEO-Friendly Blog Writing</li>
+        <li>Online Store SEO Optimization</li>
+        <li>Digital Business Growth Strategies</li>
+    </ul>
+</div>
 
 </body>
-</html>                    
+</html>
