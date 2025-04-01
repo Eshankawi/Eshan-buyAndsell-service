@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eshan Kavishka Services</title>
@@ -10,6 +9,8 @@
             margin: 0;
             padding: 20px;
             transition: background 0.5s, color 0.5s;
+            background: #f4f4f4;
+            color: black;
         }
         .container {
             background: white;
@@ -52,13 +53,25 @@
             padding: 8px;
             border-radius: 5px;
             transition: transform 0.3s, background 0.3s;
+            background: #007bff;
+            color: white;
         }
         .services-list li:hover {
             transform: scale(1.05);
+            background: #0056b3;
         }
         .dark-mode {
             background: black;
             color: white;
+        }
+        .dark-mode .container {
+            background: #222;
+        }
+        .dark-mode .services-list li {
+            background: #444;
+        }
+        .dark-mode .services-list li:hover {
+            background: #666;
         }
         .rgb-text {
             animation: rgbCycle 3s infinite;
