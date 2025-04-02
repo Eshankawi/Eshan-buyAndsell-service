@@ -1,59 +1,116 @@
-require('dotenv').config();
-const express = require('express');
-const multer = require('multer');
-const puppeteer = require('puppeteer');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+// Handle Signup Form Submission
+document.getElementById("signupForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-app.use(cors());
-app.use(express.json());
-
-const upload = multer({ dest: 'uploads/' });
-
-app.post('/upload', upload.single('file'), async (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({ error: 'No file uploaded' });
-    }
-
-    const imagePath = path.join(__dirname, req.file.path);
-    const phoneNumber = req.body.phoneNumber;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
 
     try {
-        const browser = await puppeteer.launch({ headless: false });
-        const page = await browser.newPage();
-
-        // Navigate to WhatsApp Web
-        await page.goto('https://web.whatsapp.com/', { waitUntil: 'networkidle2' });
-
-        // Wait for login (User must scan the QR code manually)
-        await page.waitForSelector('canvas[aria-label="Scan me!"]', { hidden: true });
-
-        // Navigate to profile settings
-        await page.click('span[data-icon="menu"]');
-        await page.waitForSelector('div[title="Profile"]');
-        await page.click('div[title="Profile"]');
-
-        // Click on the profile picture
-        await page.waitForSelector('div[role="button"]');
-        await page.click('div[role="button"]');
-
-        // Upload the new profile picture
-        const input = await page.waitForSelector('input[type="file"]');
-        await input.uploadFile(imagePath);
-
-        await page.waitForTimeout(5000);
-        await browser.close();
-
-        res.json({ success: true, message: 'Profile picture updated!' });
+        const response = await fetch("http://localhost:5000/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            alert("User created successfully!");
+        } else {
+            alert(data.message);
+        }
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Failed to update profile picture' });
+        console.error("Error:", error);
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+// Handle Login Form Submission
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    try {
+        const response = await fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            alert("Login successful!");
+            localStorage.setItem("token", data.token); // Save JWT token in localStorage
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
 });
+
+// Handle Product Display (example data)
+const productList = document.getElementById("product-list");
+const products = [
+    {
+        name: "Laptop",
+        price: 1000,
+        description: "A high-performance laptop.",
+        category: "electronics",
+        image: "https://via.placeholder.com/200"
+    },
+    {
+        name: "T-Shirt",
+        price: 20,
+        description: "Comfortable cotton T-shirt.",
+        category: "clothing",
+        image: "https://via.placeholder.com/200"
+    },
+    {
+        name: "Sofa",
+        price: 500,
+        description: "Luxurious leather sofa.",
+        category: "furniture",
+        image: "https://via.placeholder.com/200"
+    }
+];
+
+// Function to display products
+function displayProducts() {
+    productList.innerHTML = "";
+    products.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p><strong>Price:</strong> $${product.price}</p>
+        `;
+
+        productList.appendChild(productDiv);
+}
+
+// Function to filter products by category
+function filterByCategory(category) {
+    const filteredProducts = products.filter(product => product.category === category);
+    displayFilteredProducts(filteredProducts);
+}
+
+// Function to display filtered products
+function displayFilteredProducts(filteredProducts) {
+    productList.innerHTML = "";
+    filteredProducts.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p><strong>Price:</strong> $${product.price}</p>
+        `;
+
+        productList.appendChild(productDiv);
+}
+
+displayProducts(); // Show all products initially
