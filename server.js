@@ -1,116 +1,94 @@
-// Handle Signup Form Submission
-document.getElementById("signupForm").addEventListener("submit", async function (event) {
-    event.preventDefault();
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
+dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+
+const userSchema = new mongoose.Schema({
+    username: String,
+    email: String,
+    password: String,
+    createdAt: { type: Date, default: Date.now }
+});
+const User = mongoose.model('User', userSchema);
+
+app.post('/api/register', async (req, res) => {
     try {
-        const response = await fetch("http://localhost:5000/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-            alert("User created successfully!");
-        } else {
-            alert(data.message);
-        }
+        const { username, email, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = new User({ username, email, password: hashedPassword });
+        await user.save();
+        res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-        console.error("Error:", error);
+        res.status(500).json({ message: error.message });
     }
 });
 
-// Handle Login Form Submission
-document.getElementById("loginForm").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-
+app.post('/api/login', async (req, res) => {
     try {
-        const response = await fetch("http://localhost:5000/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-            alert("Login successful!");
-            localStorage.setItem("token", data.token); // Save JWT token in localStorage
-        } else {
-            alert(data.message);
-        }
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (!user) return res.status(400).json({ message: 'User not found' });
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
+
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token, user: { username: user.username, email: user.email } });
     } catch (error) {
-        console.error("Error:", error);
+        res.status(500).json({ message: error.message });
     }
 });
 
-// Handle Product Display (example data)
-const productList = document.getElementById("product-list");
-const products = [
-    {
-        name: "Laptop",
-        price: 1000,
-        description: "A high-performance laptop.",
-        category: "electronics",
-        image: "https://via.placeholder.com/200"
-    },
-    {
-        name: "T-Shirt",
-        price: 20,
-        description: "Comfortable cotton T-shirt.",
-        category: "clothing",
-        image: "https://via.placeholder.com/200"
-    },
-    {
-        name: "Sofa",
-        price: 500,
-        description: "Luxurious leather sofa.",
-        category: "furniture",
-        image: "https://via.placeholder.com/200"
+const productSchema = new mongoose.Schema({
+    title: String,
+    price: Number,
+    description: String,
+    image: String,
+    seller: String,
+    createdAt: { type: Date, default: Date.now }
+});
+const Product = mongoose.model('Product', productSchema);
+
+app.post('/api/products', async (req, res) => {
+    try {
+        const product = new Product(req.body);
+        await product.save();
+        res.status(201).json(product);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-];
+});
 
-// Function to display products
-function displayProducts() {
-    productList.innerHTML = "";
-    products.forEach(product => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product");
+app.get('/api/products', async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
-        productDiv.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p><strong>Price:</strong> $${product.price}</p>
-        `;
+app.delete('/api/products/:id', async (req, res) => {
+    try {
+        await Product.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
-        productList.appendChild(productDiv);
-}
-
-// Function to filter products by category
-function filterByCategory(category) {
-    const filteredProducts = products.filter(product => product.category === category);
-    displayFilteredProducts(filteredProducts);
-}
-
-// Function to display filtered products
-function displayFilteredProducts(filteredProducts) {
-    productList.innerHTML = "";
-    filteredProducts.forEach(product => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product");
-
-        productDiv.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p><strong>Price:</strong> $${product.price}</p>
-        `;
-
-        productList.appendChild(productDiv);
-}
-
-displayProducts(); // Show all products initially
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
