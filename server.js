@@ -89,3 +89,27 @@ app.delete('/api/products/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+// server.js
+
+const productSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  image: String,
+  seller: String,
+  createdAt: { type: Date, default: Date.now },
+});
+const Product = mongoose.model('Product', productSchema);
+
+// Product Routes
+app.post('/api/products', async (req, res) => {
+  // Handle Add Product
+});
+
+app.get('/api/products', async (req, res) => {
+  // Handle Fetch All Products
+});
+
+app.delete('/api/products/:id', async (req, res) => {
+  // Handle Delete Product
+});
