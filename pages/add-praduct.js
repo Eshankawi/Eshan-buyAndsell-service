@@ -44,3 +44,33 @@ export default function AddProduct() {
     </div>
   );
     }
+import { useEffect, useState } from 'react';
+
+export default function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await fetch('http://localhost:5000/api/products');
+      const data = await res.json();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
+  return (
+    <div>
+      <h1>Product Listings</h1>
+      <div>
+        {products.map((product) => (
+          <div key={product._id}>
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <img src={product.image} alt={product.title} width="200" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+  }
