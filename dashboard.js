@@ -7,25 +7,23 @@ export default function Dashboard() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const userData = JSON.parse(localStorage.getItem('user'));
-    if (!token || !userData) {
+    if (!token) {
       router.push('/login');
     } else {
-      setUser(userData);
+      // Fetch user info here
+      setUser({ username: 'John Doe' }); // Mock user info for now
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
     router.push('/login');
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold">Welcome, {user?.username}</h1>
-      <p className="text-gray-600">Email: {user?.email}</p>
-      <button onClick={handleLogout} className="bg-red-500 text-white p-2 mt-4">Logout</button>
+    <div>
+      <h1>Welcome, {user?.username}</h1>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
-    }
+      }
