@@ -47,3 +47,45 @@ app.post('/api/login', async (req, res) => {
   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   res.json({ token });
 });
+const productSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  image: String, // URL or path to product image
+  seller: String, // User ID or username
+  createdAt: { type: Date, default: Date.now },
+});
+const Product = mongoose.model('Product', productSchema);
+
+// Add Product Route
+app.post('/api/products', async (req, res) => {
+  try {
+    const { title, description, price, image, seller } = req.body;
+    const newProduct = new Product({ title, description, price, image, seller });
+    await newProduct.save();
+    res.status(201).json(newProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Get All Products Route
+app.get('/api/products', async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Delete Product Route
+app.delete('/api/products/:id', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+    res.json({ message: 'Product deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
